@@ -6,8 +6,11 @@
 <section class="secondBox">
   <ul>
     <li *ngFor="let post of posts; index as i">
-      <h4>{{post.title}}</h4>
-      <p>{{post.thought}}</p>
+      <h4>{{ post.title }}</h4>
+      <p>
+        {{ post.thought }}
+        <button type="button" class="fas fa-trash" (click)="removePost(i)"></button>
+      </p>
     </li>
   </ul>
 </section>
@@ -15,10 +18,9 @@
 <section class="thirdBox">
   <form (ngSubmit)="addPost()">
     <label for="title">Title: </label>
-    <input [(ngModel)]="newPosts.title" name="title">
+    <input [(ngModel)]="newPosts.title" name="title" />
     <label for="thought">Thought: </label>
-    <input [(ngModel)]="newPosts.thought" name="thought">
+    <input [(ngModel)]="newPosts.thought" name="thought" />
     <button type="submit" id="add">Add Thought</button>
   </form>
-
 </section>
